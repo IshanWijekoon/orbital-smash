@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -31,6 +33,25 @@ public class Game extends JPanel implements KeyListener, ActionListener {
 		timer.start();
 	}
 	
+	public void paint(Graphics g) {
+		// background
+		g.setColor(Color.white);
+		g.fillRect(1, 1, 692, 592);
+		
+		// borders
+		g.setColor(Color.orange);
+		g.fillRect(0, 0, 3, 592);
+		g.fillRect(0, 0, 692, 3);
+		g.fillRect(691, 0, 3, 592);
+		
+		// the paddle
+		g.setColor(Color.red);
+		g.fillRect(playerX, 550, 100, 8);
+		
+		// the ball
+		g.setColor(Color.blue);
+		g.fillRect(ballposx, ballposy, 20, 20);
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -39,21 +60,21 @@ public class Game extends JPanel implements KeyListener, ActionListener {
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
+	@Override
+	public void keyReleased(KeyEvent e) {}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			
+		}
+		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			
+		}
 	}
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
